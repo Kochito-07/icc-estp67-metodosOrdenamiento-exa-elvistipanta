@@ -1,5 +1,39 @@
 package models;
 
-public class Brand {
+import java.util.Arrays;
 
+public class Brand {
+  private String brandName;
+  private CarModel[] models;
+  public Brand(String brandName, CarModel[] models) {
+    this.brandName = brandName;
+    this.models = models;
+  }
+  public String getBrandName() {
+    return brandName;
+  }
+  public void setBrandName(String brandName) {
+    this.brandName = brandName;
+  }
+  public CarModel[] getModels() {
+    return models;
+  }
+  public void setModels(CarModel[] models) {
+    this.models = models;
+  }
+  @Override
+  public String toString() {
+    return "Brand [brandName=" + brandName + ", models=" + Arrays.toString(models) + "]";
+  }
+  public int testGetTotalValidYears() {
+    int n = 0;
+    for (CarModel arreglo : models){
+      for (CarYear anios : arreglo.getYears()) {
+        if (anios.getIsValid()){
+          n++;
+          }
+        } 
+      }
+    return n;
+  }
 }

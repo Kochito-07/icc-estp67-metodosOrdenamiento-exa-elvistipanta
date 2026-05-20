@@ -25,7 +25,7 @@ public class Brand {
   public String toString() {
     return "Brand [brandName=" + brandName + ", models=" + Arrays.toString(models) + "]";
   }
-  public int testGetTotalValidYears() {
+  public int getTotalValidYears() {
     int n = 0;
     for (CarModel arreglo : models){
       for (CarYear anios : arreglo.getYears()) {

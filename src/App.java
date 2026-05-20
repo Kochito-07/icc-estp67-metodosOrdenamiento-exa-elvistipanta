@@ -1,3 +1,4 @@
+import controllers.BrandController;
 import models.Brand;
 import models.CarModel;
 import models.CarYear;
@@ -6,7 +7,21 @@ public class App {
         public static void main(String[] args) throws Exception {
                 System.out.println("Examen interciclo de Estructuras de Datos");
                 System.out.println("====Configurar studente.env====");
+                Brand[] brands = createBrands();
+                BrandController controller = new BrandController();
+                System.out.println("\n--- Ordenando marcas(Descendente) ---");
+                Brand[] brandsOrdenadas = controller.sortBubbleDesc(brands);
 
+                for (Brand b : brandsOrdenadas) {
+                        System.out.println("Marca: " + b.getBrandName() + " | Años válidos: " + b.getTotalValidYears());
+                }
+                System.out.println("\n--- Búsqueda Binaria (Busacando 7 años válidos) ---" );
+                Brand encontrada = controller.binarySearchByValidYears(brandsOrdenadas, 7, false);
+                if (encontrada != null) {
+                        System.out.println("Éxito marca encontrada: " + encontrada.getBrandName());
+                } else {
+                        System.out.println("No se encontró ninguna marca con esa cantidad de años.");
+                }
         }
 
         /**

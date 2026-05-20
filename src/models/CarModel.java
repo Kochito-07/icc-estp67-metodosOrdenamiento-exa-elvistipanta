@@ -2,12 +2,11 @@ package models;
 
 import java.util.Arrays;
 
-public class CarModel extends Brand{
+public class CarModel {
   private String modelName;
   private CarYear[] years;
 
-  public CarModel(String brandName, CarModel[] models, String modelName, CarYear[] years) {
-    super(brandName, models);
+  public CarModel(String modelName, CarYear[] years) {
     this.modelName = modelName;
     this.years = years;
   }

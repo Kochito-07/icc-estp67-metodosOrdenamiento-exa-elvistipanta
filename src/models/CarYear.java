@@ -1,11 +1,10 @@
 package models;
 
-public class CarYear extends CarModel{
+public class CarYear {
   private int year;
   private boolean isValid;
-
-  public CarYear(String brandName, CarModel[] models, String modelName, CarYear[] years, int year, boolean isValid) {
-    super(brandName, models, modelName, years);
+  
+  public CarYear(int year, boolean isValid) {
     this.year = year;
     this.isValid = isValid;
   }
